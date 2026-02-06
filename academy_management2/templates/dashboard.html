@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Academy Management{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="page-title">Dashboard</h1>
+    
+    <div class="stats-grid">
+        <div class="stat-card card-enter" style="animation-delay: 0.1s">
+            <div class="stat-info">
+                <div class="stat-label">Total Students</div>
+                <div class="stat-value">{{ total_students }}</div>
+            </div>
+        </div>
+        
+        <div class="stat-card card-enter" style="animation-delay: 0.2s">
+            <div class="stat-info">
+                <div class="stat-label">Total Teachers</div>
+                <div class="stat-value">{{ total_teachers }}</div>
+            </div>
+        </div>
+        
+        <div class="stat-card card-enter" style="animation-delay: 0.3s">
+            <div class="stat-info">
+                <div class="stat-label">Total Fee Collected</div>
+                <div class="stat-value">Rs. {{ "%.2f"|format(total_collected) }}</div>
+            </div>
+        </div>
+        
+        <div class="stat-card card-enter" style="animation-delay: 0.4s">
+            <div class="stat-info">
+                <div class="stat-label">Salaries Paid</div>
+                <div class="stat-value">Rs. {{ "%.2f"|format(total_salaries_paid) }}</div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="quick-actions card-enter" style="animation-delay: 0.5s">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+            <a href="{{ url_for('students') }}" class="btn btn-primary">
+                Manage Students
+            </a>
+            <a href="{{ url_for('teachers') }}" class="btn btn-secondary">
+                Manage Teachers
+            </a>
+            <a href="{{ url_for('reports') }}" class="btn btn-accent">
+                View Reports
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}
